@@ -1,0 +1,12 @@
+[Unit]
+Description=Mise à jour automatique de FreshRSS Edge (Proxmox LXC)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+User=root
+WorkingDirectory=/opt/freshrss-lxc-updater
+ExecStart=/opt/freshrss-lxc-updater/update-freshrss.sh
+StandardOutput=journal
+StandardError=journal

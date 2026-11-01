@@ -1,0 +1,11 @@
+[Unit]
+Description=Déclenchement régulier de la mise à jour FreshRSS Edge
+After=network-online.target
+
+[Timer]
+OnCalendar=Sun *-*-* 03:30:00
+RandomizedDelaySec=1800
+Persistent=true
+
+[Install]
+WantedBy=timers.target
