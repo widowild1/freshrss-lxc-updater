@@ -1,0 +1,12 @@
+{
+  "install_dir": "/opt/freshrss",
+  "web_user": "www-data",
+  "web_group": "www-data",
+  "backup_dir": "/var/backups/freshrss",
+  "max_backups": 5,
+  "git_repo": "https://github.com/FreshRSS/FreshRSS.git",
+  "branch": "edge",
+  "restart_services": [
+    "apache2"
+  ]
+}
