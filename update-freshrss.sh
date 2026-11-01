@@ -68,12 +68,14 @@ tar -czf "$ARCHIVE_NAME" \
 echo "[*] Alignement sur origin/$BRANCH..."
 git reset --hard "origin/$BRANCH"
 
-# 4. Rétablissement des permissions
+# 4. Rétablissement des permissions et création des dossiers requis
 echo "[*] Configuration des droits d'accès ($WEB_USER:$WEB_GROUP)..."
+mkdir -p "$INSTALL_DIR/data/"{cache,users,favicons,tokens}
 chown -R "${WEB_USER}:${WEB_GROUP}" "$INSTALL_DIR"
 find "$INSTALL_DIR" -type f -exec chmod 0644 {} +
 find "$INSTALL_DIR" -type d -exec chmod 0755 {} +
-chmod -R 0775 "${INSTALL_DIR}/data"
+find "$INSTALL_DIR/data" -type d -exec chmod 0775 {} +
+find "$INSTALL_DIR/data" -type f -exec chmod 0664 {} +
 chmod +x "${INSTALL_DIR}/cli/"*.php 2>/dev/null || true
 
 # 5. Migration et maintenance CLI
