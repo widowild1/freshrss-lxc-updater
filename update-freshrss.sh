@@ -81,7 +81,7 @@ chmod +x "${INSTALL_DIR}/cli/"*.php 2>/dev/null || true
 # 5. Migration et maintenance CLI
 if command -v php &>/dev/null; then
   echo "[*] Exécution des routines CLI FreshRSS..."
-  su -s /bin/bash "$WEB_USER" -c "php ${INSTALL_DIR}/cli/actualize-user.php --all" || true
+  su -s /bin/bash "$WEB_USER" -c "php ${INSTALL_DIR}/cli/actualize-user.php" || true
 fi
 
 # 6. Rechargement des services
